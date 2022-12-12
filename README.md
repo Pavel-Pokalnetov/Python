@@ -5,7 +5,7 @@
 123 -> 6 (1 + 2 + 3)  
 100 -> 1 (1 + 0 + 0)  
 
-Решение: ![https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_2.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/)
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_2.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/)
 
 ## Задача 4
 Петя, Катя и Сережа делают из бумаги журавликов. Вместе они сделали S журавликов. Сколько журавликов сделал каждый ребенок, если известно, что Петя и Сережа сделали одинаковое количество журавликов, а Катя сделала в два раза больше журавликов, чем Петя и Сережа вместе?  
