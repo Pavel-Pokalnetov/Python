@@ -13,12 +13,17 @@ if __name__ == '__main__':
     k = int(input('k='))
 
     print(n, m, k, ' -> ', end='')
-    for i in range(1, n+1):
-        if (k == m*i):
+    
+    if k>=n*m or n*m==1:
+        print('no')
+        exit()
+    
+    for i in range(1, n//2+1):
+        if (k == m*i or k==(m*n-m*i)):
             print('yes')
             exit()
-    for i in range(1, m+1):
-        if (k == n*i):
+    for i in range(1, m//2+1):
+        if (k == n*i or k==(m*n-n*i)):
             print('yes')
             exit()
     print('no')
