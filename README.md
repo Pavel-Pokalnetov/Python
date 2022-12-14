@@ -33,4 +33,4 @@
 Решение:  
 1-й вариант: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py)
 2-й вариант:
- [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_#2.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_#2.py)
+ [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_%232.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_%232.py)
