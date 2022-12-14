@@ -30,4 +30,7 @@
 3 2 4 -> yes  
 3 2 1 -> no  
 
-Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py)
+Решение:  
+1-й вариант: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8.py)
+2-й вариант:
+ [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_#2.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_#2.py)
