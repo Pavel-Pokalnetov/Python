@@ -27,3 +27,4 @@ if __name__ == '__main__':
             print('yes')
             exit()
     print('no')
+
