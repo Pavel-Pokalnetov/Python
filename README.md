@@ -38,7 +38,7 @@
 
 ---
 
-# Домашнняя работа Семинар 2
+# Домашннее задание Семинар 2
 
 ## Задача 10
 На столе лежат n монеток. Некоторые из них лежат вверх решкой, а некоторые – гербом.
@@ -48,17 +48,19 @@
 5 -> 1 0 1 1 0  
 2  
 
-Решение: []()
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_10.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_10.py)
 
 ## Задача 12
 Петя и Катя – брат и сестра. Петя – студент, а Катя – школьница. Петя помогает Кате по математике. Он задумывает два натуральных числа X и Y (X,Y≤1000), а Катя должна их отгадать. Для этого Петя делает две подсказки. Он называет сумму этих чисел S и их произведение P.  
 Помогите Кате отгадать задуманные Петей числа.  
 
-Решение: []()
+Решение: 
+ - вариант 1 [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_12.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_12.py)
+ - вариант 2 [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_12%232.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_12%232.py)
 
 ## Задача 14
 Требуется вывести все целые степени двойки (т.е. числа вида 2^k), не превосходящие числа N.  
 
-Решение: []()
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_14.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_2_14.py)
 
 ---
