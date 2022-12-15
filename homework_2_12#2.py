@@ -17,7 +17,7 @@ def helpKaty(S, P):
             resultY = (int)(P/x)
             break
     if resultX == -1:
-        print('Петя чего-то напутал, такой пары не может быть')
+        print(' Петя чего-то напутал, такой пары не может быть')
     else:
         print(f'{resultX:3} {resultY:3}')
 
@@ -26,8 +26,8 @@ os.system('cls')  # закоментить если не Windows
 plan = [(4, 4),
         (5, 6),
         (9, 20),
-        (15, 56),
-        (31, 220),
+        (15, 55),
+        (31, 209),
         (28, 52),
         ]
 print('   S    P       X   Y')

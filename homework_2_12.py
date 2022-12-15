@@ -24,8 +24,8 @@ def helpKaty(S, P):
     if (int(resultX)) == resultX and (int(resultY)) == resultY:
         print(f'{int(resultY):3} {int(resultX):3}')
     else:
-        print('Петя лукавит!\nцифры-то не целые')
-        print(f'{resultY:3.1f} {resultX:3.1f}')
+        print('  Петя лукавит! цифры-то, не целые!!! ',end='')
+        print(f'({resultY:3.2f}  {resultX:3.2f})')
 
 
 os.system('cls')  # закоментить если не Windows
@@ -33,8 +33,8 @@ os.system('cls')  # закоментить если не Windows
 plan = [(4, 4),
         (5, 6),
         (9, 20),
-        (15, 56),
-        (31, 220),
+        (15, 55),
+        (31, 209),
         (28, 52),
         ]
 print('   S    P       X   Y')
