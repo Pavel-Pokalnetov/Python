@@ -8,7 +8,7 @@ def Degree2(n):
     result = []
     i = 0
     while pow(2, i) <= n:
-        result.append(int(pow(2,i)))
+        result.append(int(pow(2, i)))
         i += 1
     return result
 

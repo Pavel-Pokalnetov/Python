@@ -6,30 +6,34 @@
 Помогите Кате отгадать задуманные Петей числа.  
 '''
 import random
+import os
 
 
-def helpKaty(S,P):
-    resultX=resultY=-1
-    for x in range(0,1001):
-        if (x*x-S*x+P)==0:
-            resultX=x
-            resultY=(int)(P/x)
+def helpKaty(S, P):
+    resultX = resultY = -1
+    for x in range(0, 1001):
+        if (x*x-S*x+P) == 0:
+            resultX = x
+            resultY = (int)(P/x)
             break
-    if resultX==-1:
+    if resultX == -1:
         print('Петя чего-то напутал, такой пары не может быть')
     else:
-        print(f'X={resultX} Y={resultY}') 
+        print(f'{resultX:3} {resultY:3}')
 
 
-plan = [(9,20),
-        (15,56),
-        (31,220),
-        (28,52)]
-
+os.system('cls')  # закоментить если не Windows
+plan = [(4, 4),
+        (5, 6),
+        (9, 20),
+        (15, 56),
+        (31, 220),
+        (28, 52),
+        ]
 for item in plan:
-    S,P = item
-    print(f'S={S} P={P}',end='\t')
-    helpKaty(S,P)
+    S, P = item
+    print(f'{S:4} {P:4}  ->   ', end='')
+    helpKaty(S, P)
 
 
 '''
