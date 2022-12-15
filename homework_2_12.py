@@ -37,9 +37,11 @@ plan = [(4, 4),
         (31, 220),
         (28, 52),
         ]
+print('   S    P       X   Y')
+print('---- ----     --- ---')
 for item in plan:
     S, P = item
-    print(f'{S:4} {P:4}  ->   ', end='')
+    print(f'{S:4} {P:4}  -> ', end='')
     helpKaty(S, P)
 
 
