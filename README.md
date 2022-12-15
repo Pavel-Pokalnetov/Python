@@ -36,6 +36,7 @@
 2-й вариант:
  [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_%232.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_1_8_%232.py)
 
+---
 
 # Домашнняя работа Семинар 2
 
@@ -59,3 +60,5 @@
 Требуется вывести все целые степени двойки (т.е. числа вида 2k), не превосходящие числа N.  
 
 Решение: []()
+
+---
