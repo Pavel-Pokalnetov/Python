@@ -16,7 +16,7 @@ def helpKaty(S, P):
 	    maxRange = 1000
     else:
 	    minRange = 0
-	    maxRange = S//2
+	    maxRange = S//2+1
     for x in range(minRange,maxRange):
         if (x*x-S*x+P) == 0:
             resultX = x
