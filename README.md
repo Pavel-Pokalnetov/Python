@@ -77,7 +77,7 @@
 3
 -> 1
 
-Решение: []()
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_16.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_16.py)
 
 ## Задача 18:
 Требуется найти в массиве A[1..N] самый близкий по величине элемент к заданному числу X.
@@ -90,7 +90,7 @@
 
 -> 7
 
-Решение: []()
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_18.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_18.py)
 
 ## Задача 20:
 В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность. В случае с английским алфавитом очки распределяются так:
@@ -114,4 +114,4 @@ Q, Z – 10 очков.
 
 Напишите программу, которая вычисляет стоимость введенного пользователем слова. Будем считать, что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы. Для отправки решений необходимо выполнить вход.
 
-Решение: []()
+Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py)
