@@ -11,7 +11,13 @@ import os
 
 def helpKaty(S, P):
     resultX = resultY = -1
-    for x in range(0, S):
+    if S>1000:
+	    minRange = S-1000
+	    maxRange = 1000
+    else:
+	    minRange = 0
+	    maxRange = S//2
+    for x in range(minRange,maxRange):
         if (x*x-S*x+P) == 0:
             resultX = x
             resultY = (int)(P/x)
