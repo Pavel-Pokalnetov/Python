@@ -11,7 +11,7 @@ import os
 
 def helpKaty(S, P):
     resultX = resultY = -1
-    for x in range(0, 1001):
+    for x in range(0, S):
         if (x*x-S*x+P) == 0:
             resultX = x
             resultY = (int)(P/x)
