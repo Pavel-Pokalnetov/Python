@@ -301,3 +301,8 @@ poetry.toml
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,visualstudiocode
+.idea/misc.xml
+.idea/modules.xml
+.idea/Python.iml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml

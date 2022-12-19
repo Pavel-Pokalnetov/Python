@@ -21,3 +21,63 @@ Q, Z – 10 очков.
 
 Напишите программу, которая вычисляет стоимость введенного пользователем слова. Будем считать, что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы. Для отправки решений необходимо выполнить вход.
 '''
+
+# КОНСТАНТЫ
+RUSDICT = {  # словарь РУС
+    1: 'АВЕИНОРСТ',
+    2: 'ДКЛМПУ',
+    3: 'БГЁЬЯ',
+    4: 'ЙЫ',
+    5: 'ЖЗХЦЧ',
+    8: 'ШЭЮ',
+    10: 'ФЩЪ'
+}
+
+LATDICT = {  # словарь LAT
+    1: 'AEIOULNSTR',
+    2: 'DG',
+    3: 'BCMP',
+    4: 'FHVWY',
+    5: 'K',
+    8: 'JX',
+    10: 'QZ'
+}
+# два множества для определения языка слова
+LATCHARS = set('AEIOULNSTRDGBCMPFHVWYKJXQZ')
+RUSCHARS = set('АВЕИНОРСТДКЛМПУБГЁЬЯЙЫЖЗХЦЧШЭЮФЩЪ')
+
+
+def findChar(inChar, chardict):
+    "подсчет очков у буквы"
+    result = 0
+    for key, val in chardict.items():
+        if inChar in val:
+            result += key
+    return (result)
+
+
+def checkWord(word):
+    "проверка слова"
+    word = word.upper()
+    # определяем язык
+    rus = len(set(word) & RUSCHARS)
+    lat = len(set(word) & LATCHARS)
+    if rus > 0 and lat > 0: # если есть буквы обоих алфавитов то сообщаем о мошенничестве
+        print('нельзя мухлевать! слово не засчитано!')
+        return 0
+    if lat > 0: # выбираем рабочий словарь для подсчета
+        chardict = LATDICT
+    else:
+        chardict = RUSDICT
+    result = 0
+    for charItem in word:
+        result += findChar(charItem, chardict) # подсчет очков
+    return result
+
+
+# test
+while True:
+    word = input('введите слово(пусто для выхода): ')
+    if word == '':
+        exit()
+    print('набрано очков:', checkWord(word))
