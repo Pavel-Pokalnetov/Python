@@ -20,27 +20,29 @@ def helpKaty(S, P):
     for x in range(minRange,maxRange):
         if (x*x-S*x+P) == 0:
             resultX = x
-            resultY = (int)(P/x)
+            resultY = (int)(S-x)
             break
     if resultX == -1:
         print(' Петя чего-то напутал, такой пары не может быть')
     else:
-        print(f'{resultX:3} {resultY:3}')
+        print(f'{resultX:3} {resultY:6}')
 
 
 os.system('cls')  # закоментить если не Windows
 plan = [(4, 4),
         (5, 6),
         (9, 20),
-        (15, 55),
-        (31, 209),
-        (28, 52),
+        (980,1956),
+        (950, 45000 ),
+        (1000, 999),
+        (1100, 100000),
+        (900,0)
         ]
-print('   S    P       X   Y')
-print('---- ----     --- ---')
+print('   S      P       X      Y')
+print('---- ------     ---    ---')
 for item in plan:
     S, P = item
-    print(f'{S:4} {P:4}  -> ', end='')
+    print(f'{S:4} {P:6}  -> ', end='')
     helpKaty(S, P)
 
 
