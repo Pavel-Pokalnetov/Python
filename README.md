@@ -114,6 +114,8 @@ Q, Z – 10 очков.
 
 Напишите программу, которая вычисляет стоимость введенного пользователем слова. Будем считать, что на вход подается только одно слово, которое содержит либо только английские, либо только русские буквы. Для отправки решений необходимо выполнить вход.
 
-Решение: [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py)
+Решение:  
+* вариант 1  [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20.py)
+* вариант 2  [https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20_vol2.py](https://github.com/Pavel-Pokalnetov/Python/blob/main/homework_3_20_vol2.py)
 
 ---
