@@ -13,10 +13,8 @@ import random
 
 
 def getList(n, min, max):
-    i = []
-    for _ in range(n):
-        i.append(random.randint(min, max))
-    return i
+    return [random.randint(min, max) for _ in range(n)]
+
 
 
 def getCountDigitals(number, inputList):
