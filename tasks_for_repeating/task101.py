@@ -6,6 +6,7 @@ import functools
 import time
 from os import system
 import math
+
 def roundM(N,d):
     '''
     отбрасывает дробную часть числа N, меньшую чем d'''
@@ -47,3 +48,5 @@ d = float(input('введите точность: '))
 Pi,n = getPi(d)
 
 print('Пи={} вычислено за {} итераций.'.format(Pi,n))
+
+print('\nПи={}, (из модуля math с округлением до {})'.format(roundM(math.pi,d),d))

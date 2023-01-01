@@ -52,9 +52,8 @@ def get_number_of_prime_factors(N,visual=False):
             break
     return result
 
-    return result
 
 system('cls')
 number = int(input('введите число: '))
-prime_factors_list = get_number_of_prime_factors(number,True)
+prime_factors_list = get_number_of_prime_factors(number)
 print('\n{}'.format(prime_factors_list))
