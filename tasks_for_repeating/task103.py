@@ -20,7 +20,7 @@ def get_polynomial(k):
         k = ktemp
         result = []
         while k >= 0:
-            kf = random.randint(0, 3)
+            kf = random.randint(0, 101)
             if k == 0:
                 if kf > 0:
                     result.append(str(kf))
