@@ -82,4 +82,4 @@ if __name__ == '__main__':
     perfSweepMashin = getMaxPerfSweepMachin(flowerbeds, startPosition)
     print('Собранный машиной\nурожай -> ', perfSweepMashin[2])
     print('Максимально машина соберет с 3 грядок '
-          'до {} кг черники, находясь перед {}-й грядкой'.format(perfSweepMashin[0], perfSweepMashin[1]))
+          '{} кг черники, находясь перед {}-й грядкой'.format(perfSweepMashin[0], perfSweepMashin[1]))
