@@ -13,12 +13,12 @@ import os
 
 def get_polynomial(k):
     result = []
-    ktemp=k
-    if k<1:
+    ktemp = k
+    if k < 1:
         raise Exception(f'invalid parametr k={k}, must be greater than 0 ')
     while True:
-        k=ktemp
-        result=[]
+        k = ktemp
+        result = []
         while k >= 0:
             kf = random.randint(0, 3)
             if k == 0:
@@ -30,23 +30,24 @@ def get_polynomial(k):
                 k -= 1
                 continue
 
-            operand = '*x'*k
+            operand = ('*x^{}'.format(k)) if k > 1 else '*x'
             if kf == 1:
                 operand = operand[1:]
                 result.append(operand)
             else:
                 result.append('{}{}'.format(kf, operand))
             k -= 1
-        if 'x' in result: # проверка, что коэффициенты при X^n не равны 0
-            # если в многочлене все коэффициенты при X равны нулю, то генерируем заново 
-            break   
-    print(result)
+        if 'x' in result:  # проверка, что коэффициенты при X^n не равны 0
+            # если в многочлене все коэффициенты при X равны нулю, то генерируем заново
+            break
+    # print(result)
     return (' + '.join(result)+' = 0\n')
 
-def saveFiles(k,n):
-    for index in range(2):
+
+def saveFiles(k, n):
+    for index in range(1, 3):
         lines = set()
-        while len(lines)<n: #собираем неповторяющиеся многочлены
+        while len(lines) < n:  # собираем неповторяющиеся многочлены
             lines.add(get_polynomial(k))
         with open(f'task103_file{index}.txt', 'w') as outputFile:
             outputFile.writelines(lines)
@@ -55,4 +56,4 @@ def saveFiles(k,n):
 os.system('cls')
 k = int(input('введите степень многочлена: '))
 n = int(input('укажите число примеров для генерации: '))
-
+saveFiles(k, n)
