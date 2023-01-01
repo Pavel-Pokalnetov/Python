@@ -11,7 +11,7 @@ def clear():
     os.system('cls')
 
 
-pull = 10
+pull = 200
 humanStep = 0
 clear()
 while pull > 0:
@@ -19,19 +19,19 @@ while pull > 0:
     while True:
         print('на столе {} конфет' . format(pull))
         humanStep = int(input('сколько возмете: '))
-        if 0 < humanStep < 4:
+        if 0 < humanStep < 29:
             break
-        input('брать можно от 1 до 3')
+        input('брать можно от 1 до 28')
     pull -= humanStep
 
     if pull <= 0:
         print('Вы выиграли')
         exit()
 
-    if pull-4 > 3 or pull==4:
-        cpuStep = random.randint(1, 3)
-    elif 0 < pull-4 <= 3:
-        cpuStep = pull-4
+    if pull-29 > 28 or pull==29:
+        cpuStep = 28
+    elif 0 < pull-29 <= 28:
+        cpuStep = pull-29
     else:
         cpuStep = pull
 
