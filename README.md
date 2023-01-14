@@ -176,6 +176,7 @@ Output: 9
 ## Задача 101: Вычислить число π c заданной точностью d
 Пример: 
 при d = 0.001, π = 3.141    0.1 ≤ d ≤ 0.00000000001  
+
 Решение: https://github.com/Pavel-Pokalnetov/Python/blob/main/tasks_for_repeating/task101.py
 
 
