@@ -18,3 +18,7 @@ if __name__ == '__main__':
     number = int(input('введите число: '))    
     print (f'{number} -> {GetSumm(number)}')
 
+
+    
+    
+    
