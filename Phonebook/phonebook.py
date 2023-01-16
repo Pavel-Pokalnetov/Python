@@ -160,6 +160,7 @@ def del_data_by_number():
 
 
 def edit_data():
+    '''редактирование записи(изменение номера)'''
     while (True):
         count_records = print_data()
         answer = input('Введите номер редактируемой записи\n(Q - выход)>:')
