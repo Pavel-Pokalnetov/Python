@@ -1,6 +1,7 @@
-import os
 import time
 from sys import platform
+from os import system
+import functions
 
 PHONEBOOKFILE = "phonebook.txt"  # имя файла справочника
 VERSION = "1.1"
@@ -9,14 +10,13 @@ VERSION = "1.1"
 def clear_screen():
     '''очистка экрана (кроссплатформенная)'''
     if platform == "linux" or platform == "linux2" or platform == "darwin":
-        os.system("clear")  # для Linux & MacOS
+        system("clear")  # для Linux & MacOS
     else:
-        os.system("cls")    # для Windows
+        system("cls")    # для Windows
 
 
 def search_data():
     '''диалог поиска '''
-    clear_screen()
     while True:
         answer = input("Строка поиска(Еnter - выход) >:")
         if answer == "":
@@ -48,7 +48,7 @@ def output_data_string(printdata):
 def save_data_to_file(data_to_save):
     '''запись строки данных в конец файла'''
     data_to_save = ",".join(data_to_save) + "\n"
-    print(data_to_save)
+    print(f'Добавлена запись: {data_to_save}')
     with open(PHONEBOOKFILE, "a", encoding="utf8") as datafile:
         datafile.write(data_to_save)
 
@@ -68,7 +68,7 @@ def print_all_data():
     '''обертка вывод всех записей'''
     clear_screen()
     count = print_data()
-    input(">:Всего {} Записей.  Enter для выхода".format(count))
+    print(">:Всего {} Записей.".format(count))
 
 
 def add_data():
@@ -90,22 +90,9 @@ def add_data():
 
 def del_data():
     '''диалог удаления'''
-    while True:
-        clear_screen()
-        print("N - удаление по номеру записи\n"
-              "S - удаление по поиску\n"
-              "Q - выход")
-        answer = input(">:").upper()
-        match answer:
-            case "N":
-                del_data_by_number()
-            case "S":
-                del_data_by_search()
-            case "Q":
-                return
-            case _:
-                print("неверный ввод")
-                time.sleep(1)
+    menu1 = functions.Menu([("N", "удаление по номеру записи", del_data_by_number),
+                           ("S", "удаление по строке поиска", del_data_by_search)])
+    menu1.run()
 
 
 def del_data_by_search():
@@ -195,43 +182,13 @@ def edit_data():
 
 if __name__ == "__main__":
     # основной блок
-    menu = (f"Телефонный справочник. v.{VERSION}\n\n"
-            "Введите команду\n"
-            "P - Вывод данных\n"
-            "A - Добавление записи\n"
-            "S - Поиск\n"
-            "D - Удаление записи\n"
-            "R - Изменение номера записи\n"
-            "Q - Выход\n")
-    while True:
-        clear_screen()
-        print(menu)
-        answer = input(">:").upper()
-        match answer:
-            case "P":
-                # вывод данных
-                print_all_data()
+    menuitems = [
+        ("P", "Вывод данных", print_all_data),
+        ("A", "Добавление записи", add_data),
+        ("S", "Поиск", search_data),
+        ("D", "Удаление записи", del_data),
+        ("R", "Изменение номера записи", edit_data),
+        ("Q", "Выход", lambda:exit())]
 
-            case "A":
-                # добавление данных
-                add_data()
-
-            case "S":
-                # поиск
-                search_data()
-
-            case "D":
-                # удаление данных
-                del_data()
-
-            case "R":
-                # Изменение номера
-                edit_data()
-
-            case "Q":
-                # выход
-                exit(0)
-
-            case _:
-                print("неверный ввод")
-                time.sleep(1)
+    menu = functions.Menu(menuitems)
+    menu.run('>:')
