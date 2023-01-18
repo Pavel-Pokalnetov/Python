@@ -1,0 +1,61 @@
+from os import system
+
+# класс меню
+
+
+class Menu:
+    def __init__(self, elenemts=[]):
+        self.elements = elenemts
+
+    def clrscr(self):
+        system('cls')
+
+    def print(self):
+        for (mark, text, _) in self.elements:
+            print('{} - {}'.format(mark, text))
+
+    def select(self, prompt='выберите команду: '):
+        while (True):
+            self.clrscr()
+            self.print()
+            user_choice = input(prompt)
+            for (mark, _, rummethod) in self.elements:
+                if user_choice == mark:
+                    self.clrscr()
+                    rummethod()
+                    input('Enter - продолжить')
+                    break
+
+# набор методов запускаемых из меню
+
+
+def run1():
+    print('-- 1 --')
+
+
+def run2():
+    print('-- 2 --')
+
+
+def run3():
+    print('-- 3 --')
+
+
+def run4():
+    print('-- 4 --')
+
+
+def run5():
+    exit()
+
+
+# элементы меню
+menuitems = [
+    ('1', 'команда 1', run1),
+    ('2', 'команда 2', run2),
+    ('3', 'команда 3', run3),
+    ('4', 'команда 4', run4),
+    ('Q', 'выход', run5)]
+
+menu = Menu(menuitems)  # создаем меню
+menu.select()  # запускаем меню
