@@ -2,26 +2,25 @@ from os import system
 
 # класс меню
 
-
 class Menu:
     def __init__(self, elenemts=[]):
         self.elements = elenemts
 
-    def clrscr(self):
-        system('cls')
+
 
     def print(self):
         for (mark, text, _) in self.elements:
             print('{} - {}'.format(mark, text))
 
-    def select(self, prompt='выберите команду: '):
+    def run(self, prompt='выберите команду: '):
+        clrscr  = lambda:system('cls')
         while (True):
-            self.clrscr()
+            clrscr()
             self.print()
             user_choice = input(prompt)
             for (mark, _, rummethod) in self.elements:
                 if user_choice == mark:
-                    self.clrscr()
+                    clrscr()
                     rummethod()
                     input('Enter - продолжить')
                     break
@@ -58,4 +57,4 @@ menuitems = [
     ('Q', 'выход', run5)]
 
 menu = Menu(menuitems)  # создаем меню
-menu.select()  # запускаем меню
+menu.run()  # запускаем меню
