@@ -21,6 +21,9 @@ class Menu:  # класс меню
                     rummethod()
                     input('Enter - продолжить')
                     break
+    
+    def __len__(self): #размер меню
+        return len(self.elements)
 
 # набор методов запускаемых из меню
 def run1():
