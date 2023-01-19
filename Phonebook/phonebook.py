@@ -180,6 +180,7 @@ def edit_data():
         new_number = input("Новый номер(+7XXXXXXXXXX) >: ")
         if not check_phone_number(new_number):
             print("неправильный формат для номера телефона")
+            time.sleep(2)
             continue
         editable_records[3] = new_number
         with open(PHONEBOOKFILE, "w", encoding="utf8") as datafile:
