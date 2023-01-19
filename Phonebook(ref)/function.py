@@ -2,7 +2,7 @@ import time
 from os import system
 from sys import platform
 import re
-import functions
+from menu import Menu
 
 PHONEBOOKFILE = "phonebook.txt"  # имя файла справочника
 VERSION = "1.1"
@@ -94,7 +94,7 @@ def add_data():
 
 def del_data():
     '''диалог удаления'''
-    menu_del = functions.Menu([("N", "удаление по номеру записи", del_data_by_number),
+    menu_del = Menu([("N", "удаление по номеру записи", del_data_by_number),
                                ("S", "удаление по строке поиска", del_data_by_search),
                                ("Q", "выход", -1)])
     while (True):
@@ -188,16 +188,4 @@ def edit_data():
                            ",".join(editable_records) + '\n')
 
 
-if __name__ == "__main__":
-    # основной блок
-    menuitems = [
-        ("P", "Вывод данных", print_all_data),
-        ("A", "Добавление записи", add_data),
-        ("S", "Поиск", search_data),
-        ("D", "Удаление записи", del_data),
-        ("R", "Изменение номера записи", edit_data),
-        ("Q", "Выход", lambda: exit())]
 
-    menu = functions.Menu(menuitems)
-    clear_screen()
-    menu.run('>:')
