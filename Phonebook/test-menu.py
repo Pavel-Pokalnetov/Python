@@ -1,42 +1,23 @@
 from os import system
 
-
-class Menu:  # класс меню
-    def __init__(self, elenemts=[]):
-        self.elements = elenemts
-
-    def print(self):
-        for (mark, text, _) in self.elements:
-            print('{} - {}'.format(mark, text))
-
-    def run(self, prompt='выберите команду: '):
-        def clrscr(): return system('cls')
-        while (True):
-            clrscr()
-            self.print()
-            user_choice = input(prompt)
-            for (mark, _, rummethod) in self.elements:
-                if user_choice == mark:
-                    clrscr()
-                    rummethod()
-                    input('Enter - продолжить')
-                    break
-    
-    def __len__(self): #размер меню
-        return len(self.elements)
+from functions import Menu
 
 # набор методов запускаемых из меню
 def run1():
     print('-- 1 --')
+    input("Enter to continue")
 
 def run2():
     print('-- 2 --')
+    input("Enter to continue")
 
 def run3():
     print('-- 3 --')
+    input("Enter to continue")
 
 def run4():
     print('-- 4 --')
+    input("Enter to continue")
 
 # элементы меню
 menuitems = [
