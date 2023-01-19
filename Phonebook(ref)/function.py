@@ -3,12 +3,17 @@ from os import system
 from sys import platform
 import re
 from menu import Menu
+from string import Template
+import json
+
 
 PHONEBOOKFILE = "phonebook.txt"  # имя файла справочника
 VERSION = "1.1"
 
+
 def check_phone_number(number):
-    return True if len(re.findall("\+{0,1}\d{11}",number))==1 else False
+    return True if len(re.findall("\+{0,1}\d{11}", number)) == 1 else False
+
 
 def clear_screen():
     '''очистка экрана (кроссплатформенная)'''
@@ -95,8 +100,8 @@ def add_data():
 def del_data():
     '''диалог удаления'''
     menu_del = Menu([("N", "удаление по номеру записи", del_data_by_number),
-                               ("S", "удаление по строке поиска", del_data_by_search),
-                               ("Q", "выход", -1)])
+                     ("S", "удаление по строке поиска", del_data_by_search),
+                     ("Q", "выход", -1)])
     while (True):
         if menu_del.run():
             return
@@ -188,4 +193,38 @@ def edit_data():
                            ",".join(editable_records) + '\n')
 
 
+def export_to_vCard():
+    tempale_vCard = Template('BEGIN:VCARD\n'
+                             'VERSION:2.1\n'
+                             'N: $lastname;$firstname;$patronymic\n'
+                             'FN:$firstname $patronymic $lastname\n'
+                             'TEL;cell:$phonenumber\n'
+                             'END:VCARD\n')
+    vCARD = ''
+    for lastname, firstname, patronymic, phonenumber in read_data_from_file():
+        vCARD += tempale_vCard.substitute(lastname=lastname,
+                                          firstname=firstname, patronymic=patronymic, phonenumber=phonenumber)
+    with open('vCARD.vcf', 'w', encoding='utf8') as vCardFile:
+        vCardFile.write(vCARD)
+    input("файл vCARD.vcf записан\nEnter>")
 
+
+def export_to_JSON():
+    keys = ['lastname', 'firsname', 'patronymic', 'phonenumber']
+    records = dict()
+    count = 0
+    for rawdata in read_data_from_file():
+        record = dict(zip(keys, rawdata))
+        records[str(count)] = record
+        count += 1
+    # print(records)
+    records = {'addressbook': records}
+    with open("addressbook.json", "w", encoding='utf8') as jsonfile:
+        json.dump(records, jsonfile, ensure_ascii=False)
+    # input('Enter>')
+
+
+def read_data_from_file():
+    with open(PHONEBOOKFILE, "r", encoding="utf8") as datafile:
+        rawdata = list(item.strip('\n').split(',') for item in datafile)
+    return rawdata

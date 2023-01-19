@@ -9,6 +9,9 @@ if __name__ == "__main__":
         ("S", "Поиск", fn.search_data),
         ("D", "Удаление записи", fn.del_data),
         ("R", "Изменение номера записи", fn.edit_data),
+        ("E", "Экспорт адресной книги в vCARD",fn.export_to_vCard),
+        ("J", "Экспорт адресной книги в JSON",fn.export_to_JSON),
+        ("T","from test",fn.read_data_from_file),
         ("Q", "Выход", lambda: exit())]
 
     menu = Menu(menuitems)
