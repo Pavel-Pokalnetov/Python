@@ -1,6 +1,7 @@
 import time
-from sys import platform
 from os import system
+from sys import platform
+
 import functions
 
 PHONEBOOKFILE = "phonebook.txt"  # имя файла справочника
@@ -12,7 +13,7 @@ def clear_screen():
     if platform == "linux" or platform == "linux2" or platform == "darwin":
         system("clear")  # для Linux & MacOS
     else:
-        system("cls")    # для Windows
+        system("cls")  # для Windows
 
 
 def search_data():
@@ -42,7 +43,7 @@ def output_data_string(printdata):
     parse_data = printdata.split(",")
     template = "{0:<30} Тел.: {1:<13}"
     print(template.format(
-        parse_data[0]+' ' + parse_data[1]+' '+parse_data[2], parse_data[3]))
+        parse_data[0] + ' ' + parse_data[1] + ' ' + parse_data[2], parse_data[3]))
 
 
 def save_data_to_file(data_to_save):
@@ -69,6 +70,7 @@ def print_all_data():
     clear_screen()
     count = print_data()
     print(">:Всего {} Записей.".format(count))
+    input('Enter - продолжить')
 
 
 def add_data():
@@ -90,9 +92,11 @@ def add_data():
 
 def del_data():
     '''диалог удаления'''
-    menu1 = functions.Menu([("N", "удаление по номеру записи", del_data_by_number),
-                           ("S", "удаление по строке поиска", del_data_by_search)])
-    menu1.run()
+    menu_del = functions.Menu([("N", "удаление по номеру записи", del_data_by_number),
+                           ("S", "удаление по строке поиска", del_data_by_search),
+                           ("Q", "выход", -1)])
+    while (True):
+        if menu_del.run(): return
 
 
 def del_data_by_search():
@@ -169,15 +173,15 @@ def edit_data():
                     continue
                 not_editable_records += line
 
-        print("Запись: "+" ".join(editable_records))
+        print("Запись: " + " ".join(editable_records))
         new_number = input("Новый номер >: ")
-        if (new_number[0] != '+' and not new_number.isnumeric()) or\
+        if (new_number[0] != '+' and not new_number.isnumeric()) or \
                 (not (new_number[0] == '+' and new_number[1:].isnumeric())):
             continue
         editable_records[3] = new_number
         with open(PHONEBOOKFILE, "w", encoding="utf8") as datafile:
             datafile.write(not_editable_records +
-                           ",".join(editable_records)+'\n')
+                           ",".join(editable_records) + '\n')
 
 
 if __name__ == "__main__":
@@ -188,7 +192,8 @@ if __name__ == "__main__":
         ("S", "Поиск", search_data),
         ("D", "Удаление записи", del_data),
         ("R", "Изменение номера записи", edit_data),
-        ("Q", "Выход", lambda:exit())]
+        ("Q", "Выход", lambda: exit())]
 
     menu = functions.Menu(menuitems)
+    clear_screen()
     menu.run('>:')
