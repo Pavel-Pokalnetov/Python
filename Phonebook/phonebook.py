@@ -1,12 +1,14 @@
 import time
 from os import system
 from sys import platform
-
+import re
 import functions
 
 PHONEBOOKFILE = "phonebook.txt"  # имя файла справочника
 VERSION = "1.1"
 
+def check_phone_number(number):
+    return True if len(re.findall("\+{0,1}\d{11}",number))==1 else False
 
 def clear_screen():
     '''очистка экрана (кроссплатформенная)'''
@@ -93,10 +95,11 @@ def add_data():
 def del_data():
     '''диалог удаления'''
     menu_del = functions.Menu([("N", "удаление по номеру записи", del_data_by_number),
-                           ("S", "удаление по строке поиска", del_data_by_search),
-                           ("Q", "выход", -1)])
+                               ("S", "удаление по строке поиска", del_data_by_search),
+                               ("Q", "выход", -1)])
     while (True):
-        if menu_del.run(): return
+        if menu_del.run():
+            return
 
 
 def del_data_by_search():
@@ -162,8 +165,8 @@ def edit_data():
             print('неверный ввод')
             time.sleep(2)
             continue
-        not_editable_records = ''
-        editable_records = ''
+        not_editable_records = ''  # записи без изменения
+        editable_records = ''      # запись для редактирования
         count = 0
         with open(PHONEBOOKFILE, "r", encoding="utf8") as datafile:
             for line in datafile:
@@ -174,9 +177,9 @@ def edit_data():
                 not_editable_records += line
 
         print("Запись: " + " ".join(editable_records))
-        new_number = input("Новый номер >: ")
-        if (new_number[0] != '+' and not new_number.isnumeric()) or \
-                (not (new_number[0] == '+' and new_number[1:].isnumeric())):
+        new_number = input("Новый номер(+7XXXXXXXXXX) >: ")
+        if not check_phone_number(new_number):
+            print("неправильный формат для номера телефона")
             continue
         editable_records[3] = new_number
         with open(PHONEBOOKFILE, "w", encoding="utf8") as datafile:
