@@ -1,5 +1,7 @@
 from menu import Menu
 import function as fn
+import export_pb as expb
+import import_pb as impb
 
 if __name__ == "__main__":
     # основной блок
@@ -9,8 +11,7 @@ if __name__ == "__main__":
         ("S", "Поиск", fn.search_data),
         ("D", "Удаление записи", fn.del_data),
         ("R", "Изменение номера записи", fn.edit_data),
-        ("E", "Экспорт справочника", fn.export_phonebook),
-        ("T", "from test", fn.read_data_from_file),
+        ("E", "Экспорт справочника", expb.export_phonebook),
         ("Q", "Выход", lambda: exit())]
 
     menu = Menu(menuitems)
