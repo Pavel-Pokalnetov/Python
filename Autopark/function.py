@@ -45,7 +45,7 @@ def add_route():
     route_number = input("Номер маршрута: ")
     driver_id = input("id водителя: ")
     bus_id = input("id автобуса: ")
-    add_item_to_file('marshrut.txt', [route_id,route_number,driver_id,bus_id])
+    add_item_to_file('marshrut.txt', [route_id,route_number,bus_id,driver_id])
 
 
 
@@ -73,4 +73,4 @@ def get_item_by_id(id,records):
         if id==id_record:
             return item_record
             break
-    return None        
+    return id        
