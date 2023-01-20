@@ -12,6 +12,7 @@ if __name__ == "__main__":
         ("D", "Удаление записи", fn.del_data),
         ("R", "Изменение номера записи", fn.edit_data),
         ("E", "Экспорт справочника", expb.export_phonebook),
+        ("I", "Импорт справочника", impb.import_phonebook),
         ("Q", "Выход", lambda: exit())]
 
     menu = Menu(menuitems)

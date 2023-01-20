@@ -1,25 +1,69 @@
+import os
 import re
+import json
+from function import PHONEBOOKFILE, clear_screen
+from menu import Menu
 
 
-def get_file_content(filename):
+def import_phonebook():
+    importExport = Menu([("V", "Импорт адресной книги в vCARD", import_vCARD),
+                         ("J", "Импорт адресной книги в JSON", import_JSON),
+                         ("Q", "Выход", -1)])
+    while (True):
+        if importExport.run('>:'):
+            return
+
+
+def input_file_for_import():
+    clear_screen()
+    filename = input('Имя файла для импорта:')
+    if os.path.isfile(filename):
+        return (filename)
+    else:
+        print("Файл не существует")
+        input("Enter>")
+        return -1
+
+
+def import_vCARD():
+    vCARD_file_name =  input_file_for_import() #"vCARD.vcf"
+    if vCARD_file_name == -1:
+        return
     content = ''
-    with open(filename, 'r', encoding='utf8') as contentfile:
+    with open(vCARD_file_name, 'r', encoding='utf8') as contentfile:
         for item in contentfile:
             content += item
-        return content
-
-
-def parce_vCard(content):
-    ready_parse_data = []
+    result_parsedata = ''
     regexp = 'N:\s([а-яёА-ЯЁ]{,20}\;[а-яёА-ЯЁ]{,20}\;[а-яёА-ЯЁ]{,20})\nFN:[а-яёА-ЯЁ]{,20}\s[а-яёА-ЯЁ]{,20}\s[а-яёА-ЯЁ]{,20}\nTEL;cell:([\+]{0,1}[0-9]{1,11})'
     parsedata = list(re.findall(regexp, content))
-    if len(parsedata):
-        for fio, tel in parsedata:
-            ready_parse_data.append(fio.split(';'), tel)
-        return ready_parse_data
+    if not len(parsedata):
+        return
     else:
-        return None
+        for fio, tel in parsedata:
+            temp = fio.split(';')
+            temp.append(tel)
+            result_parsedata += ','.join(temp)+'\n'
+        save_data_to_file(result_parsedata)
+    input("Enter>")
 
 
-def parse_JSON(content):
-    pass
+def import_JSON():
+    json_file_name = input_file_for_import() # "phonebook.json"
+    if json_file_name == -1:
+        return
+    result_parsedata = ''
+    with open(json_file_name, "r", encoding="utf8") as read_file:
+        data = json.load(read_file)['phonebook']
+    for item in data:
+        line = ",".join([data[item]['lastname'],
+                        data[item]['firsname'],
+                        data[item]['patronymic'],
+                        data[item]['phonenumber']])
+        result_parsedata += line+'\n'
+    save_data_to_file(result_parsedata)
+    input("Enter>")
+
+
+def save_data_to_file(datatxt):
+    with open(PHONEBOOKFILE, "w", encoding="utf8") as datafile:
+        datafile.write(datatxt)
