@@ -6,8 +6,8 @@ from menu import Menu
 
 
 def import_phonebook():
-    importExport = Menu([("V", "Импорт адресной книги в vCARD", import_vCARD),
-                         ("J", "Импорт адресной книги в JSON", import_JSON),
+    importExport = Menu([("V", "Импорт адресной книги из vCARD", import_vCARD),
+                         ("J", "Импорт адресной книги из JSON", import_JSON),
                          ("Q", "Выход", -1)])
     while (True):
         if importExport.run('>:'):
