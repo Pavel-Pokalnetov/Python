@@ -8,13 +8,13 @@ def print_bus():
 
 
 def add_bus():
-    name, number = input('Название автобуса:'), input("Госномер: ")
+    name, number = input('id автобуса:'), input("Госномер: ")
     add_item_to_file('bus.txt', [name, number])
 
 
 def print_driver():
     drivers = read_data_from_file('driver.txt')
-    print('|         Имя|     Фамилия|')
+    print('| id водителя| Имя Фамилия|')
     print('-'*27)
     for firstname, lastname in drivers:
         print('|{:>12s}|{:>12s}|'.format(firstname, lastname))
@@ -22,8 +22,8 @@ def print_driver():
 
 
 def add_driver():
-    firstname = input('Имя:')
-    lastname = input("Фамилия: ")
+    firstname = input('id водителя:')
+    lastname = input("Фамилия Имя: ")
     add_item_to_file('driver.txt', [firstname, lastname])
 
 
@@ -72,5 +72,4 @@ def get_item_by_id(id,records):
     for id_record,item_record in records:
         if id==id_record:
             return item_record
-            break
     return id        
