@@ -1,5 +1,5 @@
 from os import system
-from calc import calc
+from calc import calc, parse
 
 
 test_list = (
@@ -18,3 +18,5 @@ for item in test_list:
     print(item, "=", result)
 
 input('Enter>>>')
+
+
