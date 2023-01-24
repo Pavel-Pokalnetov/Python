@@ -5,8 +5,8 @@ from function import PHONEBOOKFILE
 
 def export_phonebook():
     menuExport = Menu([("E", "Экспорт адресной книги в vCARD", export_to_vCard),
-                       ("J", "Экспорт адресной книги в JSON", export_to_JSON),
-                       ("H", "Экспорт адресной книги в HTML", export_to_HTML),
+                       ("J", "Экспорт адресной книги в JSON",  export_to_JSON),
+                       ("H", "Экспорт адресной книги в HTML",  export_to_HTML),
                        ("Q", "Выход", -1)])
     while (True):
         if menuExport.run('>:'):
@@ -23,14 +23,19 @@ def export_to_vCard():
     vCARD = ''
     for lastname, firstname, patronymic, phonenumber in read_data_from_file():
         vCARD += tempale_vCard.substitute(lastname=lastname,
-                                          firstname=firstname, patronymic=patronymic, phonenumber=phonenumber)
+                                          firstname=firstname,
+                                          patronymic=patronymic,
+                                          phonenumber=phonenumber)
     with open('vCARD.vcf', 'w', encoding='utf8') as vCardFile:
         vCardFile.write(vCARD)
-    input("файл vCARD.vcf записан\nEnter>")
+        input("файл vCARD.vcf записан\nEnter>")
 
 
 def export_to_JSON():
-    keys = ['lastname', 'firsname', 'patronymic', 'phonenumber']
+    keys = ['lastname',
+            'firsname',
+            'patronymic',
+            'phonenumber']
     records = dict()
     count = 0
     for rawdata in read_data_from_file():
@@ -40,8 +45,10 @@ def export_to_JSON():
     # print(records)
     records = {'phonebook': records}
     with open("phonebook.json", "w", encoding='utf8') as jsonfile:
-        json.dump(records, jsonfile, ensure_ascii=False)
-    input("файл phonebook.json записан\nEnter>")
+        json.dump(records, 
+                  jsonfile,
+                  ensure_ascii=False)
+        input("файл phonebook.json записан\nEnter>")
 
 
 def export_to_HTML():
@@ -59,11 +66,13 @@ def export_to_HTML():
 </body>
 </html>''')
     template_row = Template(
-        '<li>$lastname $firstname $patronymic $phonenumber</li>\n')
+        '<li>$lastname $firstname $patronymic, $phonenumber</li>\n')
     body = ''
     for lastname, firstname, patronymic, phonenumber in read_data_from_file():
         body += template_row.substitute(lastname=lastname,
-                                        firstname=firstname, patronymic=patronymic, phonenumber=phonenumber)
+                                        firstname=firstname,
+                                        patronymic=patronymic,
+                                        phonenumber=phonenumber)
     HTML = template_HTML.substitute(body=body)
     with open('phonebook.html', 'w', encoding='utf8') as HTML_File:
         HTML_File.write(HTML)
