@@ -1,29 +1,7 @@
-# import re
-
-# def calculate(userinput):  # <<< на вход примимает выражение типа 'a [+-/*] b'
-#     pattern = "([\-]{0,}\d{1,})\s{0,}([\/|\+|\*|\-]{1})\s{0,}([\-]{0,}\d{1,})"
-#     parsedata = re.findall(pattern, userinput)[
-#         0
-#     ]  # возвращает list  ('операнд1','операция','операнд 2')
-#     a = int(parsedata[0])
-#     b = int(parsedata[2])
-#     oper = parsedata[1]
-#     match oper:
-#         case "+":
-#             func = lambda a, b: a + b
-#         case "-":
-#             func = lambda a, b: a + b
-#         case "/":
-#             if b != 0:
-#                 func = lambda a, b: a / b
-#             else:
-#                 print("DivisionByZero")
-#                 func = None
-#         case "*":
-#             func = lambda a, b: a + b
-#     return func(a, b) if func != None else ""
-
-
+'''
+калькулятор с учетом приоритета операций (+-/*)
+БЕЗ ПОДДЕРЖКИ СКОБОК
+'''
 def parse(string_to_parsing):
     operands = []
     operations = []
@@ -93,3 +71,11 @@ def calc(input_expression):
     return True, operands[0]
 
 
+def test(testexpression='1 + 2 * 3 - 4 / 5'): # 6.2
+    print(testexpression)
+    print(parse(testexpression))
+    print(calc(testexpression))
+
+
+if __name__=='__main__':
+    test()
