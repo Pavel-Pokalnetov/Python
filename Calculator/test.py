@@ -2,7 +2,7 @@ from os import system
 from polandcalc import calc
 
 def test():
-    test_list = ("(-1)+4*6",)
+    test_list = ("((-5))*-6+(-4)/-2",)
     system('cls')
     for item in test_list:
         result = calc(item)
