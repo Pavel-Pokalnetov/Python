@@ -111,7 +111,7 @@ def polandcalc(pool, fl=False):
     oper = {'+': lambda a, b: a+b,
             '-': lambda a, b: a-b,
             '*': lambda a, b: a*b,
-            '^': lambda a, b: math.pow(a, b), }
+            '^': lambda a, b: a**b, }
     stack = []
     while (len(pool) > 0):
         token = pool.pop(0)
