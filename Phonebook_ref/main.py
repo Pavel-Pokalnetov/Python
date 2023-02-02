@@ -16,5 +16,6 @@ if __name__ == "__main__":
         ("Q", "Выход", lambda: exit())]
 
     menu = Menu(menuitems)
+    
     fn.clear_screen()
     menu.run('>:')

@@ -35,3 +35,5 @@ class Menu:  # класс меню
 
     def __len__(self):  # размер меню
         return len(self.elements)
+
+
